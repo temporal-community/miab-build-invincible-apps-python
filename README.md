@@ -59,7 +59,7 @@ You can either open three separate terminals, or use a terminal multiplex such a
     python worker.py
     ```
 3. In the third terminal, run the following commands to start the Flask application:
-        1. Be sure to activate your virtual environment:
+    1. Be sure to activate your virtual environment:
     ```bash
     source env/bin/activate
     ```
