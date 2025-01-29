@@ -133,10 +133,10 @@ We can use the Web UI to debug issues when they go wrong.
     If a Timer fires and a Worker is not available, it will pick up when a Worker becomes available again.
 7. Return to the Flask application and click the **Reset** button.
 
-### Worker Crash During an Execution
+### Worker Becomes Unavailable During an Execution
 
 **Purpose**: Demonstrate that a Timer fires regardless if there is a Worker running.
-**Failure**: Worker will "crash" (ctrl-c) while a Timer is waiting to fire
+**Failure**: Worker will "become unavailable" (ctrl-c) while a Timer is waiting to fire
 **Temporal Feature Demonstrated**: Durable Timers
 **Audience Takeaway**: Timers are managed on the Temporal Service side. 
 They will fire regardless if there is a Worker running or not.
@@ -208,7 +208,7 @@ An intermittent failure, such as a network outage, will be retried until the Act
 **Audience Takeaway**: The Temporal Service itself is durable.
 
 1. Explain to the audience that a Durable Timer will fire regardless if a Worker is available:
-    > "You've seen the Worker crash, you've seen the network fail. But what if Temporal fails? "
+    > "You've seen the Worker become unavailable, you've seen the network fail. But what if Temporal fails? "
 2. Enter an audience members name in the text field **Enter your name** in the web application.
 3. Press the **Show Demo Options** link on the page.
 4. In the **Sleep Duration (seconds)** section of the form, provide **10** in the **Number of Seconds** field and press the **Get Greeting** button.
