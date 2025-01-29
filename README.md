@@ -5,7 +5,7 @@ We're thrilled that you want to share Temporal within your community, and we hop
 
 This presentation is designed to introduce Python developers of all experience levels to Temporal.
 In this presentation, you will lead the audience through the fundamental building blocks of Temporal, including the Temporal Service, Workflows, Activities, Workers, Durable Timers, and Task Queues.
-You will demo a distributed Hello World example that uses an external service to obtain your IP address and then uses the result as input to a geo-location service, returning a greeting that provides your IP address and where you currently are.
+You will explore a distributed Hello World example that uses an external service to obtain your IP address and then uses the result as input to a geo-location service, returning a greeting that provides your IP address and where you currently are.
 Along the way, you'll demonstrate various failure scenarios, and how Temporal handles them by providing Durable Execution.
 
 Thank you for your interest in Temporal, we hope you enjoy this Meetup in a Box!
@@ -97,7 +97,7 @@ We can use the Web UI to debug issues when they go wrong.
 1. Prepare the audience with an introduction to the demo:
     > "First, let's see the application work successfully. This application is a distributed take on a Hello World program. It takes a users name, and makes HTTP calls to two different services. The first service retrieves the IP address of the requester and returns it, and the second service takes an IP address and uses it to perform a geo-lookup. This means that the result of the first request will be used as the input for the second request. Once both requests have completed, the application will return a greeting, saying hello, your IP address, and what city you are currently in."
 2. Enter your name in the text field **Enter your name** in the web application and press the **Get Greeting** button.
-3. A greeting should return immediately similar to the following:
+3. The app will return a greeting immediately similar to the following:
     ```
     Hello, Ziggy!
     Your IP Address is 256.256.256.256.
