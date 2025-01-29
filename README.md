@@ -143,7 +143,7 @@ They will fire regardless if there is a Worker running or not.
 If a Timer fires and a Worker is not available, it will pick up when a Worker becomes available again.
 
 1. Explain to the audience that a Durable Timer will fire regardless if a Worker is available:
-    > "But what happens if the Worker were to crash before the Timer were to fire? If this wasn't a Durable Timer, the state of the Timer would be lost, and you would have to restart the application and wait for the entire timer again. With Temporal, the Timer will fire regardless if there is a Worker running, and it will resume execution as soon as a new Worker comes online."
+    > "But what happens if the Worker were to become unavailable before the Timer were to fire? If this wasn't a Durable Timer, the state of the Timer would be lost, and you would have to restart the application and wait for the entire timer again. With Temporal, the Timer will fire regardless if there is a Worker running, and it will resume execution as soon as a new Worker comes online."
 2. Enter an audience members name in the text field **Enter your name** in the web application.
 3. Press the **Show Demo Options** link on the page.
 4. In the **Sleep Duration (seconds)** section of the form, provide **10** in the **Number of Seconds** field and press the **Get Greeting** button.
