@@ -86,7 +86,7 @@ While you are demoing, narrate what you are doing as you are doing it.
 The more you speak, the more engaged the audience will be.
 We have provided scripts in areas below if you need them, but feel free to explain it in your own way if you feel comfortable doing so.
 
-### Successful Execution
+### Demo #1 Successful Execution
 
 **Purpose**: Show the working application
 **Failure**: None
@@ -110,7 +110,7 @@ We can use the Web UI to debug issues when they go wrong.
     4. Anything else you find interesting that you wish to point out, or any anecdotes on how you use the Web UI
 5. Return to the Flask application and click the **Reset** button.
 
-### Successful Execution with a Durable Timer
+### Demo #2 Successful Execution with a Durable Timer
 
 **Purpose**: Show the working application with a small pause happening between the service calls
 **Failure**: None
@@ -133,7 +133,7 @@ We can use the Web UI to debug issues when they go wrong.
     If a Timer fires and a Worker is not available, it will pick up when a Worker becomes available again.
 7. Return to the Flask application and click the **Reset** button.
 
-### Worker Becomes Unavailable During an Execution
+### Demo #3 Worker Becomes Unavailable During an Execution
 
 **Purpose**: Demonstrate that a Timer fires regardless if there is a Worker running.
 **Failure**: Worker will "become unavailable" (ctrl-c) while a Timer is waiting to fire
@@ -171,7 +171,7 @@ If a Timer fires and a Worker is not available, it will pick up when a Worker be
     **Answer:** The Timer would have fired and execution would have completed successfully, as if nothing had ever happened.
 13. Return to the Flask application and click the **Reset** button.
 
-### Network Outage During an Execution
+### Demo #4 Network Outage During an Execution
 
 **Purpose**: Demonstrate how Temporal retries until either success or cancellation
 **Failure**: Network will have an "outage" as the presenter will turn off their Wifi while the app is running.
@@ -200,7 +200,7 @@ An intermittent failure, such as a network outage, will be retried until the Act
     > "Activities are retried by default in Temporal. How often, how long, how many times can be configured, but intermittent errors don't cause crashes."
 12. Return to the Flask application and click the **Reset** button.
 
-### Temporal Outage During an Execution
+### Demo #5 Temporal Outage During an Execution
 
 **Purpose**: Demonstrate that the Temporal Service going down won't stop us!
 **Failure**: The Temporal Service will "crash" (ctrl-c) while the Timer is waiting to fire.
