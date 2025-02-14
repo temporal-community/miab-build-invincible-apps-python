@@ -29,7 +29,7 @@ In order to present this material, you will need to install a development versio
     ```
 5. Activate the virtual environment: 
     ```bash
-source venv/bin/activate
+    source venv/bin/activate
     ```
 6. Install the required packages, which includes `temporalio`, `aiohttp`, and `flask`:
     ```bash
@@ -48,7 +48,7 @@ You can either open three separate terminals, or use a terminal multiplex such a
 2. In the second terminal, run the following commands to start the Temporal Worker:
     1. Be sure to activate your virtual environment:
     ```bash
-source venv/bin/activate
+    source venv/bin/activate
     ```
     2. Change directories into the `hello-ip` directory:
     ```bash
@@ -61,7 +61,7 @@ source venv/bin/activate
 3. In the third terminal, run the following commands to start the Flask application:
     1. Be sure to activate your virtual environment:
     ```bash
-source venv/bin/activate
+    source venv/bin/activate
     ```
     2. Change directories into the `hello-ip` directory:
     ```bash
@@ -81,7 +81,7 @@ Before doing these demos, ensure that you are connected to a network.
 These demos are listed in a chronological order, meaning they are designed to be done one after the other, each one building upon the previous demo.
 While presenting, feel free to elaborate within these demos.
 Personal anecdotes and experiences make the presentation more relatable to the audience.
-You will be entering the name of a person into the form multiple times, so to encourage participation, use audience members' names in the form as input.
+You will be entering the name of a person into the form multiple times, so to encourage participation, use audience member's' names in the form as input.
 While you are demoing, narrate what you are doing as you are doing it.
 The more you speak, the more engaged the audience will be.
 We have provided scripts in areas below if you need them, but feel free to explain it in your own way if you feel comfortable doing so.
@@ -144,7 +144,7 @@ If a Timer fires and a Worker is not available, it will pick up when a Worker be
 
 1. Explain to the audience that a Durable Timer will fire regardless if a Worker is available:
     > "But what happens if the Worker were to become unavailable before the Timer were to fire? If this wasn't a Durable Timer, the state of the Timer would be lost, and you would have to restart the application and wait for the entire timer again. With Temporal, the Timer will fire regardless if there is a Worker running, and it will resume execution as soon as a new Worker comes online."
-2. Enter an audience members name in the text field **Enter your name** in the web application.
+2. Enter an audience member's name in the text field **Enter your name** in the web application.
 3. Press the **Show Demo Options** link on the page.
 4. In the **Sleep Duration (seconds)** section of the form, provide **10** in the **Number of Seconds** field and press the **Get Greeting** button.
 5. Immediately after, switch to the terminal with the Worker running, and press `CTRL-C` (or `CMD-C` if on Mac) to kill the Worker process.
@@ -175,13 +175,14 @@ If a Timer fires and a Worker is not available, it will pick up when a Worker be
 
 **Purpose**: Demonstrate how Temporal retries until either success or cancellation
 **Failure**: Network will have an "outage" as the presenter will turn off their Wifi while the app is running.
+**Warning**: If you are giving a virtual/hybrid meetup, this demo is not possible, so skip it.
 **Temporal Feature Demonstrated**: Activity Retries
 **Audience Takeaway**: Temporal automatically retries Activities on failure.
 An intermittent failure, such as a network outage, will be retried until the Activity completes successfully or is cancelled.
 
 1. Ask the audience what they think will happen if the network were to go out while the application was running:
     > "We all know that networks can be unreliable. So what do you think would happen if during the delay, I simulated a network failure by turning off my Wifi?"
-2. Enter an audience members name in the text field **Enter your name** in the web application.
+2. Enter an audience member's name in the text field **Enter your name** in the web application.
 3. Press the **Show Demo Options** link on the page.
 4. In the **Sleep Duration (seconds)** section of the form, provide **10** in the **Number of Seconds** field and press the **Get Greeting** button.
 5. Immediately after, disable the network on your device, either by turning off the Wifi or unplugging the ethernet cable.
@@ -209,7 +210,7 @@ An intermittent failure, such as a network outage, will be retried until the Act
 
 1. Explain to the audience that a Durable Timer will fire regardless if a Worker is available:
     > "You've seen the Worker become unavailable, you've seen the network fail. But what if Temporal fails? "
-2. Enter an audience members name in the text field **Enter your name** in the web application.
+2. Enter an audience member's name in the text field **Enter your name** in the web application.
 3. Press the **Show Demo Options** link on the page.
 4. In the **Sleep Duration (seconds)** section of the form, provide **10** in the **Number of Seconds** field and press the **Get Greeting** button.
 5. Go to the Temporal Web UI home page and see that there is a Workflow in the **Running** state.
@@ -245,7 +246,7 @@ Comment
         ```bash
         python worker.py
         ```
-3. Enter an audience members name in the text field **Enter your name** in the web application.
+3. Enter an audience member's name in the text field **Enter your name** in the web application.
 4. Observe that a result was not displayed.
 5. Go to the Temporal Web UI and you'll see the `get_location_info` Activity is failing due to the invalid URL supplied.
 6. Return to your text editor and modify `activities.py`, adding the `h` back to `http`.
