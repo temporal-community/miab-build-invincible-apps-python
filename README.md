@@ -95,7 +95,7 @@ We have provided scripts in areas below if you need them, but feel free to expla
 We can use the Web UI to debug issues when they go wrong.
 
 1. Prepare the audience with an introduction to the demo:
-    > "First, let's see the application work successfully. This application is a distributed take on a Hello World program. It takes a users name, and makes HTTP calls to two different services. The first service retrieves the IP address of the requester and returns it, and the second service takes an IP address and uses it to perform a geo-lookup. This means that the result of the first request will be used as the input for the second request. Once both requests have completed, the application will return a greeting, saying hello, your IP address, and what city you are currently in."
+    > "First, let's see the application work successfully. This application is a distributed take on a Hello World program. It takes a user's name, and makes HTTP calls to two different services. The first service retrieves the IP address of the requester and returns it, and the second service takes an IP address and uses it to perform a geo-lookup. This means that the result of the first request will be used as the input for the second request. Once both requests have completed, the application will return a greeting, saying hello, your IP address, and what city you are currently in."
 2. Enter your name in the text field **Enter your name** in the web application and press the **Get Greeting** button.
 3. The app will return a greeting immediately similar to the following:
     ```
