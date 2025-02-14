@@ -1,7 +1,7 @@
 # Meetup in a Box - Intro to Durable Execution - Python
 
 Welcome to the Temporal [Meetup in a Box](LINK TBD) program!
-We're thrilled that you want to share Temporal within your community, and we hope these resources will aide you in doing just that.
+We're thrilled that you want to share Temporal within your community, and we hope these resources will aid you in doing just that.
 
 This presentation is designed to introduce Python developers of all experience levels to Temporal.
 In this presentation, you will lead the audience through the fundamental building blocks of Temporal, including the Temporal Service, Workflows, Activities, Workers, Durable Timers, and Task Queues.
