@@ -61,7 +61,7 @@ source venv/bin/activate
 3. In the third terminal, run the following commands to start the Flask application:
     1. Be sure to activate your virtual environment:
     ```bash
-    source env/bin/activate
+source venv/bin/activate
     ```
     2. Change directories into the `hello-ip` directory:
     ```bash
