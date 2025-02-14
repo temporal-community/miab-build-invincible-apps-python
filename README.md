@@ -81,7 +81,7 @@ Before doing these demos, ensure that you are connected to a network.
 These demos are listed in a chronological order, meaning they are designed to be done one after the other, each one building upon the previous demo.
 While presenting, feel free to elaborate within these demos.
 Personal anecdotes and experiences make the presentation more relatable to the audience.
-You will be entering the a name of a person into the form multiple times, so to encourage participation, use audience members' names in the form as input.
+You will be entering the name of a person into the form multiple times, so to encourage participation, use audience members' names in the form as input.
 While you are demoing, narrate what you are doing as you are doing it.
 The more you speak, the more engaged the audience will be.
 We have provided scripts in areas below if you need them, but feel free to explain it in your own way if you feel comfortable doing so.
