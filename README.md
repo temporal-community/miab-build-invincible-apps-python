@@ -12,7 +12,7 @@ Thank you for your interest in Temporal, we hope you enjoy this Meetup in a Box!
 
 ## Installation
 
-In order to present this material, you will need to install a development version of the Temporal Service, the Temporal Python SDk, and various packages onto your presentation device.
+In order to present this material, you will need to install a development version of the Temporal Service, the Temporal Python SDK, and various packages onto your presentation device.
 
 1. Install the Temporal CLI on your local machine by following [this tutorial](https://learn.temporal.io/getting_started/python/dev_environment/#set-up-a-local-temporal-service-for-development-with-temporal-cli)
 2. Clone this repository to your local machine:
