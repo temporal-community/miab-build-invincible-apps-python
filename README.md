@@ -225,7 +225,8 @@ An intermittent failure, such as a network outage, will be retried until the Act
 11. Return to the application and the greeting should have appeared as well.
 12. Open the Web UI and show that the Workflow continued execution and everything looks normal, as if nothing ever happened.
 13. Conclude your demo to the audience:
-    > "As long as the database hasn't been corrupted or deleted, the Temporal Service resumes right where it left off. You may have correctly deduced then that managing that persistence layer is one of the most important parts of running a self-hosted Temporal instance. But no matter what we through at it, Temporal survived it."
+    > "As long as the database hasn't been corrupted or deleted, the Temporal Service resumes right where it left off. You may have correctly deduced then that managing that persistence layer is one of the most important parts of running a self-hosted Temporal instance. But no matter what we throw at it, Temporal survived it."
+Comment
 
 **You have now completed the demo**
 
