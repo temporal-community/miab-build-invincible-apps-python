@@ -119,7 +119,7 @@ We can use the Web UI to debug issues when they go wrong.
 
 1. Explain to the audience that next you'll introduce a delay in between the two calls:
     > "Next, I'm going to introduce a delay between the two calls. This is going to help me simulate various failure scenarios going forward, and also demonstrate the concept of Durable Timers. So this application can take in an integer via the form and sleep for that amount of seconds after executing the first Activity but before executing the second."
-2. Enter an audience members name in the text field **Enter your name** in the web application.
+2. Enter an audience member's name in the text field **Enter your name** in the web application.
 3. Press the **Show Demo Options** link on the page.
 4. In the **Sleep Duration (seconds)** section of the form, provide **3** in the **Number of Seconds** field and press the **Get Greeting** button.
 5. The greeting should return after a short delay (3 seconds) similar to the original:
