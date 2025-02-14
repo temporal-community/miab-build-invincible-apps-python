@@ -29,7 +29,7 @@ In order to present this material, you will need to install a development versio
     ```
 5. Activate the virtual environment: 
     ```bash
-    source env/bin/activate
+source venv/bin/activate
     ```
 6. Install the required packages, which includes `temporalio`, `aiohttp`, and `flask`:
     ```bash
