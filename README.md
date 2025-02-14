@@ -247,7 +247,7 @@ Comment
         ```
 3. Enter an audience members name in the text field **Enter your name** in the web application.
 4. Observe that a result was not displayed.
-5. Go to the Temporal Web UI and you'll the `get_location_info` Activity is failing due to the invalid URL supplied.
+5. Go to the Temporal Web UI and you'll see the `get_location_info` Activity is failing due to the invalid URL supplied.
 6. Return to your text editor and modify `activities.py`, adding the `h` back to `http`.
 7. Restart the Worker by first killing it with `CTRL-C` and then running:
     ```bash
