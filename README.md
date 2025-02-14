@@ -48,7 +48,7 @@ You can either open three separate terminals, or use a terminal multiplex such a
 2. In the second terminal, run the following commands to start the Temporal Worker:
     1. Be sure to activate your virtual environment:
     ```bash
-    source env/bin/activate
+source venv/bin/activate
     ```
     2. Change directories into the `hello-ip` directory:
     ```bash
