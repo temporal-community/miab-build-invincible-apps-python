@@ -36,7 +36,19 @@ In order to present this material, you will need to install a development versio
     python -m pip install -r requirements.txt
     ```
 
-## Running the Application
+## Teaser Demo
+
+This demo is a quick, 1 - 2 minute teaser of Durable Execution. 
+It should _not_ be used to introduce any Temporal Concepts yet, that will come later in the presentation.
+
+This demo will quickly demonstrate the difference between "volatile" and durable execution.
+Volatile execution is any execution that is not durable, so it is synonymous with the majority of code that is executed by most developers on a daily basis. 
+
+This demo will run a loop that counts from 1 to 10, sleeping for 1 second between each iteration, and logging the value to the screen.
+After the loop progresses a bit (about 4 or 5), the loop will be terminated.
+In a volatile execution, restarting this process will cause the loop to start over from the beginning, but in a durable process we'll see that the execution resumes where it was, continuing the execution.
+
+### Running the demo
 
 The sample application requires three terminal windows and a browser to run. 
 You can either open three separate terminals, or use a terminal multiplex such as `screen` or `tmux` to manage your terminals.
@@ -44,6 +56,131 @@ You can either open three separate terminals, or use a terminal multiplex such a
 1. In the first terminal, run the following command to start the Temporal Service on port 8080 with a persistent database:
     ```bash
     temporal server start-dev --ui-port 8080 --db-filename temporal.db
+    ```
+    You should see an output _similar_ to this (the exact output and versions may differ)
+    ```bash
+    CLI 1.1.1 (Server 1.25.1, UI 2.31.2)
+
+    Server:  localhost:7233
+    UI:      http://localhost:8080
+    Metrics: http://localhost:65134/metrics
+    ```
+2. In the second terminal, run the following commands to demo Volatile Execution.
+The Temporal Service you started will not be used in this portion.
+    1. Be sure to activate your virtual environment:
+    ```bash
+    source venv/bin/activate
+    ```
+    2. Change directories into the `durable-vs-volatile-execution/volatile` directory:
+    ```bash
+    cd durable-vs-volatile-execution/volatile
+    ```
+    3. Run the Volatile Execution script
+    ```bash
+    python counter.py
+    ```
+    4. The script should log the numbers 1 to 10 one at a time, sleeping for 1 second in between, similar to this:
+    ```bash
+    0
+    1
+    2
+    3
+    4
+    ```
+    Once it has gotten to 4 or 5, use `CTRL-C` and kill the execution.
+    5. Ask the audience 
+    > What will happen if I run the execution again?
+
+    The answer should be "It will start over."
+    You can ask
+
+    > Who thinks it will resume where it left off?"
+
+    No one will probably think this, as this is not typical behavior for any programming language.
+    6. Run the Volatile Execution script again
+    ```bash
+    python counter.py
+    ```
+    Confirm that the code did, in fact, start over.
+3. For this demo you will need both the second and third terminal. Now you will demonstrate the same application, a loop that counts from 1 to 10, sleeping between each step, that does survive killing the process. When the execution is brought back online, it will resume where it left off. **Remember**, this is not the time to go deep into the architecture of Temporal. Mention that for this sample, there's a running process that executes the code and another script that invokes it. 
+    1. Open up a terminal and activate the virtual environment
+    ```bash
+    source venv/bin/activate
+    ```
+    2. Change directories into the `durable-vs-volatile-execution/durable` directory:
+    ```bash
+    cd durable-vs-volatile-execution/durable
+    ```
+    3. Start the Temporal Worker:
+    ```bash
+    python worker.py
+    ```
+
+    You should see output _similar_ to this:
+    ```bash
+    Starting the worker....<PROCESS_ID>@<YOUR_DEVICE_NAME>
+    ```
+    4. Change to another terminal and activate the virtual environment
+    ```bash
+    source venv/bin/activate
+    ```
+    5. Run the starter code, which will begin the execution of the loop code
+    ```bash
+    python starter.py
+    ```
+    This code will exit immediately. Return to the other terminal.
+    6. In the previous terminal you should see the output of the loop. Once the loop gets to 4 or 5, CTRL-C the process and kill it. You will see extra output:
+    ```bash
+    ^CWorker cancelled, shutting down
+    Beginning worker shutdown, will wait 0:00:00 before cancelling activities
+    ```
+    For now you can ignore these.
+    7. Ask the same question from the previous demo:
+
+    > What will happen if I run the execution again?
+
+    See if the answers change. But then add:
+
+    > Wouldn't it be great if it did just resume working?
+
+    8. Restart the Worker and let the code complete
+    ```bash
+    python worker.py
+    ```
+    The code should pick up where it left off, resuming from the next number in the count.
+    9. Open a browser tab to [http://127.0.0.1:8080](http://127.0.0.1:8080) to view the Temporal Web UI. Go to the Workflow Execution of this run and show the timeline view. You should see the timers and the call to the `add_one` method. Click on a single Activity Task and show the input and output. 
+
+    People may be very interested and start asking a lot of questions, try to hold them off, there will be plenty of time going forward. Go back to the slides and resume the presentation.
+
+    
+## Temporal Demos
+
+Below are the instructions to the demos to showcase various features of Temporal using the distributed Hello World application.
+Before doing these demos, ensure that you are connected to a network.
+These demos are listed in a chronological order, meaning they are designed to be done one after the other, each one building upon the previous demo.
+While presenting, feel free to elaborate within these demos.
+Personal anecdotes and experiences make the presentation more relatable to the audience.
+You will be entering the name of a person into the form multiple times, so to encourage participation, use audience member's' names in the form as input.
+While you are demoing, narrate what you are doing as you are doing it.
+The more you speak, the more engaged the audience will be.
+We have provided scripts in areas below if you need them, but feel free to explain it in your own way if you feel comfortable doing so.
+
+### Running the Application
+
+The sample application requires three terminal windows and a browser to run. 
+You can either open three separate terminals, or use a terminal multiplex such as `screen` or `tmux` to manage your terminals.
+
+1. In the first terminal, run the following command to start the Temporal Service on port 8080 with a persistent database:
+    ```bash
+    temporal server start-dev --ui-port 8080 --db-filename temporal.db
+    ```
+    You should see an output _similar_ to this (the exact output and versions may differ)
+    ```bash
+    CLI 1.1.1 (Server 1.25.1, UI 2.31.2)
+
+    Server:  localhost:7233
+    UI:      http://localhost:8080
+    Metrics: http://localhost:65134/metrics
     ```
 2. In the second terminal, run the following commands to start the Temporal Worker:
     1. Be sure to activate your virtual environment:
@@ -73,18 +210,6 @@ You can either open three separate terminals, or use a terminal multiplex such a
     ```
 4. Open a browser tab to [http://127.0.0.1:8000](http://127.0.0.1:8000) to view the Flask application.
 5. Open a browser tab to [http://127.0.0.1:8080](http://127.0.0.1:8080) to view the Temporal Web UI.
-    
-## Demos
-
-Below are the instructions to the demos to showcase various features of Temporal using the distributed Hello World application.
-Before doing these demos, ensure that you are connected to a network.
-These demos are listed in a chronological order, meaning they are designed to be done one after the other, each one building upon the previous demo.
-While presenting, feel free to elaborate within these demos.
-Personal anecdotes and experiences make the presentation more relatable to the audience.
-You will be entering the name of a person into the form multiple times, so to encourage participation, use audience member's' names in the form as input.
-While you are demoing, narrate what you are doing as you are doing it.
-The more you speak, the more engaged the audience will be.
-We have provided scripts in areas below if you need them, but feel free to explain it in your own way if you feel comfortable doing so.
 
 ### Demo #1 Successful Execution
 
@@ -171,37 +296,7 @@ If a Timer fires and a Worker is not available, it will pick up when a Worker be
     **Answer:** The Timer would have fired and execution would have completed successfully, as if nothing had ever happened.
 13. Return to the Flask application and click the **Reset** button.
 
-### Demo #4 Network Outage During an Execution
-
-**Purpose**: Demonstrate how Temporal retries until either success or cancellation
-**Failure**: Network will have an "outage" as the presenter will turn off their Wifi while the app is running.
-**Warning**: If you are giving a virtual/hybrid meetup, this demo is not possible, so skip it.
-**Temporal Feature Demonstrated**: Activity Retries
-**Audience Takeaway**: Temporal automatically retries Activities on failure.
-An intermittent failure, such as a network outage, will be retried until the Activity completes successfully or is cancelled.
-
-1. Ask the audience what they think will happen if the network were to go out while the application was running:
-    > "We all know that networks can be unreliable. So what do you think would happen if during the delay, I simulated a network failure by turning off my Wifi?"
-2. Enter an audience member's name in the text field **Enter your name** in the web application.
-3. Press the **Show Demo Options** link on the page.
-4. In the **Sleep Duration (seconds)** section of the form, provide **10** in the **Number of Seconds** field and press the **Get Greeting** button.
-5. Immediately after, disable the network on your device, either by turning off the Wifi or unplugging the ethernet cable.
-6. Wait for the Timer to fire and the second Activity to begin attempting to execute.
-    1. You will notice that the Activity does not complete, as the network is down and the service cannot be reached.
-7. Go to the Web UI and locate the **Pending Activities** line in the Event History. Click on it to expand it.
-    1. Show the audience the **Attemt** count, the time until **Next Retry**, and the **Last Failure** message.
-8. Restore the network on your device. 
-9. After the **Next Retry** time has passed, the greeting should return similar to the original:
-    ```
-    Hello, Ziggy!
-    Your IP Address is 256.256.256.256.
-    You are in Austin, Texas, United States
-    ```
-10. Explain to the audience:
-    > "Activities are retried by default in Temporal. How often, how long, how many times can be configured, but intermittent errors don't cause crashes."
-12. Return to the Flask application and click the **Reset** button.
-
-### Demo #5 Temporal Outage During an Execution
+### Demo #4 Temporal Outage During an Execution
 
 **Purpose**: Demonstrate that the Temporal Service going down won't stop us!
 **Failure**: The Temporal Service will "crash" (ctrl-c) while the Timer is waiting to fire.
@@ -229,9 +324,7 @@ An intermittent failure, such as a network outage, will be retried until the Act
     > "As long as the database hasn't been corrupted or deleted, the Temporal Service resumes right where it left off. You may have correctly deduced then that managing that persistence layer is one of the most important parts of running a self-hosted Temporal instance. But no matter what we throw at it, Temporal survived it."
 Comment
 
-**You have now completed the demo**
-
-### Bonus Demo - Recovering from a Bug
+### Demo #5 - Recovering from a Bug
 
 **Purpose**: Demonstrate that Temporal allows you to fix bugs even while the code is running
 **Failure**: We're going to introduce a bug into our code, fix it, and watch Temporal recover
@@ -259,3 +352,39 @@ Comment
 10. Open the Web UI and show that the Workflow continued execution and everything looks normal, as if nothing ever happened.
 11. Conclude your demo to the audience:
     > "If you have a bug in an Activity, and that Activity is failing, you can fix the bug and redeploy it, and Temporal will pick up this change and continue executing without losing the progress that was made previously."
+
+
+**You have now completed the demo**
+
+### Bonus Demo - Network Outage During an Execution
+**Warning**: If you are giving a virtual/hybrid meetup, this demo is not possible. 
+If the venue uses a captive portal WiFi, reconnecting may be difficult. 
+Only do this demo if you can disconnect without causing an interruption, and trust that it will reconnect without issue. 
+
+**Purpose**: Demonstrate how Temporal retries until either success or cancellation
+**Failure**: Network will have an "outage" as the presenter will turn off their Wifi while the app is running.
+**Temporal Feature Demonstrated**: Activity Retries
+**Audience Takeaway**: Temporal automatically retries Activities on failure.
+An intermittent failure, such as a network outage, will be retried until the Activity completes successfully or is cancelled.
+
+1. Ask the audience what they think will happen if the network were to go out while the application was running:
+    > "We all know that networks can be unreliable. So what do you think would happen if during the delay, I simulated a network failure by turning off my Wifi?"
+2. Enter an audience member's name in the text field **Enter your name** in the web application.
+3. Press the **Show Demo Options** link on the page.
+4. In the **Sleep Duration (seconds)** section of the form, provide **10** in the **Number of Seconds** field and press the **Get Greeting** button.
+5. Immediately after, disable the network on your device, either by turning off the Wifi or unplugging the ethernet cable.
+6. Wait for the Timer to fire and the second Activity to begin attempting to execute.
+    1. You will notice that the Activity does not complete, as the network is down and the service cannot be reached.
+7. Go to the Web UI and locate the **Pending Activities** line in the Event History. Click on it to expand it.
+    1. Show the audience the **Attemt** count, the time until **Next Retry**, and the **Last Failure** message.
+8. Restore the network on your device. 
+9. After the **Next Retry** time has passed, the greeting should return similar to the original:
+    ```
+    Hello, Ziggy!
+    Your IP Address is 256.256.256.256.
+    You are in Austin, Texas, United States
+    ```
+10. Explain to the audience:
+    > "Activities are retried by default in Temporal. How often, how long, how many times can be configured, but intermittent errors don't cause crashes."
+12. Return to the Flask application and click the **Reset** button.
+
