@@ -14,7 +14,7 @@ blinker==1.8.2
     # via flask
 click==8.1.7
     # via flask
-flask==3.0.3
+flask[async]==3.0.3
     # via -r requirements.in
 frozenlist==1.5.0
     # via
@@ -46,7 +46,7 @@ types-protobuf==5.26.0.20240422
     # via temporalio
 typing-extensions==4.11.0
     # via temporalio
-werkzeug==3.0.3
+werkzeug==3.0.6
     # via flask
 yarl==1.18.3
     # via aiohttp
