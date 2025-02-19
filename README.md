@@ -39,7 +39,7 @@ In order to present this material, you will need to install a development versio
 ## Teaser Demo
 
 This demo is a quick, 1 - 2 minute teaser of Durable Execution. 
-It should _not_ be used to introduce any Temporal Concepts yet, that will come later in the presentation.
+It should _not_ be used to introduce any Temporal Concepts yet, that will come later in the presentation. 
 
 This demo will quickly demonstrate the difference between "volatile" and durable execution.
 Volatile execution is any execution that is not durable, so it is synonymous with the majority of code that is executed by most developers on a daily basis. 
@@ -75,7 +75,7 @@ The Temporal Service you started will not be used in this portion.
     ```bash
     cd durable-vs-volatile-execution/volatile
     ```
-    3. Run the Volatile Execution script
+    3. Show the code to the audience, demonstrating it's a standard loop. Then run the Volatile Execution script
     ```bash
     python counter.py
     ```
@@ -111,6 +111,10 @@ The Temporal Service you started will not be used in this portion.
     ```bash
     cd durable-vs-volatile-execution/durable
     ```
+    2. Show the `counter.py` file to the audience. 
+    Explain that it's a slight modification, but relatively similar.
+    You added a function to do the addition, and added a few decorators. 
+    **DON'T** go into depth here, all the terms will be defined later.
     3. Start the Temporal Worker:
     ```bash
     python worker.py
