@@ -80,7 +80,7 @@ The Temporal Service you started will not be used in this portion.
     python counter.py
     ```
     4. The script should log the numbers 1 to 10 one at a time, sleeping for 1 second in between, similar to this:
-    ```bash
+    ```
     0
     1
     2
@@ -128,13 +128,13 @@ The Temporal Service you started will not be used in this portion.
     ```bash
     source venv/bin/activate
     ```
-    5. Run the starter code, which will begin the execution of the loop code
+    5. Run the starter scriptg, which will begin the execution of the loop code
     ```bash
     python starter.py
     ```
     This code will exit immediately. Return to the other terminal.
     6. In the previous terminal you should see the output of the loop. Once the loop gets to 4 or 5, CTRL-C the process and kill it. You will see extra output:
-    ```bash
+    ```
     ^CWorker cancelled, shutting down
     Beginning worker shutdown, will wait 0:00:00 before cancelling activities
     ```
@@ -179,7 +179,7 @@ You can either open three separate terminals, or use a terminal multiplex such a
     temporal server start-dev --ui-port 8080 --db-filename temporal.db
     ```
     You should see an output _similar_ to this (the exact output and versions may differ)
-    ```bash
+    ```
     CLI 1.1.1 (Server 1.25.1, UI 2.31.2)
 
     Server:  localhost:7233
