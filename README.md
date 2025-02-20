@@ -128,7 +128,7 @@ The Temporal Service you started will not be used in this portion.
     ```bash
     source venv/bin/activate
     ```
-    5. Run the starter scriptg, which will begin the execution of the loop code
+    5. Run the starter script, which will begin the execution of the loop code
     ```bash
     python starter.py
     ```
