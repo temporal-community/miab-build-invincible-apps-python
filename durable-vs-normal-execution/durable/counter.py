@@ -21,7 +21,7 @@ class CountingWorkflow:
         number = 0
         while number < 10:
             number = await workflow.execute_activity(
-                add_one,
+                add_one,  # Function to execute
                 number,
                 start_to_close_timeout=timedelta(seconds=5),
             )
